@@ -1,0 +1,90 @@
+<table style="margin: 0 auto;width: 1000px;margin-top: 50px;">
+    <thead>
+        <tr>
+            <th>EmployeeId</th>
+            <th>FirstName</th>
+            <th>LastName</th>
+            <th>DateOfBirth</th>
+            <th>PhoneNumber</th>
+            <th>Email</th>
+            <th>Gender</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of signalRService.data; let i = index;" (click)="selectedItem(item)">
+            <td> {{item.employeeId}}</td>
+            <td style="width: 20%"> {{item.firstName}}</td>
+            <td style="width: 20%"> {{item.lastName}}</td>
+            <td> {{item.dateOfBirth}}</td>
+            <td> {{item.phoneNumber}}</td>
+            <td> {{item.email}}</td>
+            <td> {{item.gender}}</td>
+            <td> 
+                <button type="button" (click)="delete(item.employeeId)"> Delete </button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<div style="border:1px dashed #666; margin: 0 auto; width: 600px; height: auto; padding: 10px;margin-top:50px;">
+    <form class="AddEmployee" [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
+
+        <div style="margin-top: 10px;">
+            <ul>
+                <li><label for="firstname">First name:</label></li>
+                <li>
+                    <input type="text" formControlName="firstName" name="firstName" [ngClass]="{ 'is-invalid' : submitted && f.firstName.errors }"><br>
+                    <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                        <div *ngIf="f.firstName.errors.required">FirstName is required</div>
+                    </div>
+                </li>
+    
+                <li style="margin-top: 10px;"><label for="lastName">Last name:</label></li>
+                <li>
+                    <input type="text" formControlName="lastName" name="lastName" [ngClass]="{ 'is-invalid' : submitted && f.lastName.errors }"><br>
+                    <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+                        <div *ngIf="f.lastName.errors.required">LastName is required</div>
+                    </div>
+                </li>
+    
+                <li style="margin-top: 10px;"><label for="dateOfBirth">DateOfBirth:</label></li>
+                <li>
+                    <input type="date" formControlName="dateOfBirth" name="dateOfBirth" [ngClass]="{ 'is-invalid' : submitted && f.dateOfBirth.errors }"><br>
+                    <div *ngIf="submitted && f.dateOfBirth.errors" class="invalid-feedback">
+                        <div *ngIf="f.dateOfBirth.errors.required">DateOfBirth is required</div>
+                    </div>
+                </li>
+    
+                <li style="margin-top: 10px;"><label for="phoneNumber">PhoneNumber:</label></li>
+                <li>
+                    <input type="text" formControlName="phoneNumber" name="phoneNumber" [ngClass]="{ 'is-invalid' : submitted && f.phoneNumber.errors }"><br>
+                    <div *ngIf="submitted && f.phoneNumber.errors" class="invalid-feedback">
+                        <div *ngIf="f.phoneNumber.errors.required">PhoneNumber is required</div>
+                    </div>
+                </li>
+    
+                <li style="margin-top: 10px;"><label for="email">Email:</label></li>
+                <li>
+                    <input type="email" formControlName="email" name="email" [ngClass]="{ 'is-invalid' : submitted && f.email.errors }"><br>
+                    <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                        <div *ngIf="f.email.errors.required">Email is required</div>
+                    </div>
+                </li>
+    
+                <li style="margin-top: 10px;"><label for="gender">Gender:</label></li>
+                <li>
+                    <input type="text" formControlName="gender" name="gender" [ngClass]="{ 'is-invalid' : submitted && f.gender.errors }"><br>
+                    <div *ngIf="submitted && f.gender.errors" class="invalid-feedback">
+                        <div *ngIf="f.gender.errors.required">Email is required</div>
+                    </div>
+                </li>
+            </ul>
+            <button type="submit" style="cursor:pointer;">Enviar</button>
+
+            <button type="button" style="float:right" *ngIf="clear" (click)="clearData()">Cancel</button>
+        </div>
+      </form>
+</div>
+
+

@@ -1,0 +1,56 @@
+body {
+    font-family: "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+.AddEmployee ul {
+    padding-left: 0px;
+}
+
+.AddEmployee ul li {
+    list-style: none;
+}
+
+.AddEmployee ul li input[type="text"], input[type="email"], input[type="date"] {
+    width: 50%;
+}
+
+table {
+    border-collapse: collapse;
+    color: #7d7979;
+}
+  
+table, th, td {
+    border: 1px solid #ea8f8f;
+    border-style: dashed;
+}
+
+table tbody tr:hover {
+    cursor: pointer;
+    background-color: #ea8f8f;
+    color: #FFF;
+}
+
+table thead tr th {
+    color: #7d7979;
+}
+
+table tbody tr::selection {
+    color: #FFF !important;
+    background-color: #ea8f8f !important;
+}
+
+button {
+    widows: 300px;
+    height: 30px;
+}
+
+button:hover{
+    background-color: #7d7979;
+    border: none;
+    color: #FFF;
+    cursor: pointer;
+}
+
+.invalid-feedback {
+    color: #e44444;
+    font-size: 12px;
+}
